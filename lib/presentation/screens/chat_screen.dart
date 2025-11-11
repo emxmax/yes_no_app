@@ -38,7 +38,23 @@ class _ChatView extends StatelessWidget {
                 color: Colors.red,
               ),
             ),
-            Text("Aqui estara la caja de texto")
+            TextFormField(
+              decoration: InputDecoration(
+                enabledBorder: OutlineInputBorder(
+                  borderSide: BorderSide(color: Colors.green),
+                  borderRadius: BorderRadius.circular(20)
+                ),
+                focusedBorder: OutlineInputBorder(
+                  borderSide: BorderSide(color: Colors.green),
+                  borderRadius: BorderRadius.circular(20)
+                ),
+                filled: true,
+                suffixIcon: IconButton(
+                  onPressed: (){}, 
+                  icon: Icon(Icons.send_outlined)
+                )
+              ),
+            )
           ],
         ),
       ),
