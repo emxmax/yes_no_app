@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:yes_no_app/presentation/widgets/my_message.dart';
 
 class ChatScreen extends StatelessWidget {
   const ChatScreen({super.key});
@@ -12,20 +13,18 @@ class ChatScreen extends StatelessWidget {
         leading: Padding(
           padding: const EdgeInsets.all(4.0),
           child: CircleAvatar(
-            backgroundImage: NetworkImage("https://upload.wikimedia.org/wikipedia/commons/1/16/JenniferAnistonHWoFFeb2012.jpg"),
+            backgroundImage: NetworkImage(
+              "https://upload.wikimedia.org/wikipedia/commons/1/16/JenniferAnistonHWoFFeb2012.jpg",
+            ),
           ),
         ),
       ),
-      body: _ChatView()
+      body: _ChatView(),
     );
   }
 }
 
 class _ChatView extends StatelessWidget {
-  const _ChatView({
-    super.key,
-  });
-
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -34,27 +33,30 @@ class _ChatView extends StatelessWidget {
         child: Column(
           children: [
             Expanded(
-              child: Container(
-                color: Colors.red,
+              child: ListView.builder(
+                itemCount: 100,
+                itemBuilder: (context, index) {
+                  return MyMessage();
+                },
               ),
             ),
             TextFormField(
               decoration: InputDecoration(
                 enabledBorder: OutlineInputBorder(
                   borderSide: BorderSide(color: Colors.green),
-                  borderRadius: BorderRadius.circular(20)
+                  borderRadius: BorderRadius.circular(20),
                 ),
                 focusedBorder: OutlineInputBorder(
                   borderSide: BorderSide(color: Colors.green),
-                  borderRadius: BorderRadius.circular(20)
+                  borderRadius: BorderRadius.circular(20),
                 ),
                 filled: true,
                 suffixIcon: IconButton(
-                  onPressed: (){}, 
-                  icon: Icon(Icons.send_outlined)
-                )
+                  onPressed: () {},
+                  icon: Icon(Icons.send_outlined),
+                ),
               ),
-            )
+            ),
           ],
         ),
       ),
