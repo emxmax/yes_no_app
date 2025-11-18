@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:yes_no_app/presentation/widgets/her_message.dart';
+import 'package:yes_no_app/presentation/widgets/message_field_box.dart';
 import 'package:yes_no_app/presentation/widgets/my_message.dart';
 
 class ChatScreen extends StatelessWidget {
@@ -41,23 +42,7 @@ class _ChatView extends StatelessWidget {
                 },
               ),
             ),
-            TextFormField(
-              decoration: InputDecoration(
-                enabledBorder: OutlineInputBorder(
-                  borderSide: BorderSide(color: Colors.green),
-                  borderRadius: BorderRadius.circular(20),
-                ),
-                focusedBorder: OutlineInputBorder(
-                  borderSide: BorderSide(color: Colors.green),
-                  borderRadius: BorderRadius.circular(20),
-                ),
-                filled: true,
-                suffixIcon: IconButton(
-                  onPressed: () {},
-                  icon: Icon(Icons.send_outlined),
-                ),
-              ),
-            ),
+            MessageFieldBox()
           ],
         ),
       ),
