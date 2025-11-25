@@ -1,10 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:yes_no_app/providers/chat_provider.dart';
 
 class MessageFieldBox extends StatelessWidget {
   const MessageFieldBox({super.key});
 
   @override
   Widget build(BuildContext context) {
+    final chatProvider = context.watch<ChatProvider>();
     final textController = TextEditingController();
     final outlineInputBorder = OutlineInputBorder(
       borderSide: BorderSide(color: Colors.green),
@@ -21,14 +24,14 @@ class MessageFieldBox extends StatelessWidget {
         suffixIcon: IconButton(
           onPressed: () {
             final textValue = textController.value.text;
-            print('Submit value $textValue');
+            chatProvider.sendMessage(textValue);
             textController.clear();
           },
           icon: Icon(Icons.send_outlined),
         ),
       ),
       onFieldSubmitted: (value) {
-        print('Submit value $value');
+        chatProvider.sendMessage(value);
         textController.clear();
       },
     );
