@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:yes_no_app/domain/entities/message.dart';
 
 class MyMessage extends StatelessWidget {
-  const MyMessage({super.key});
+
+  final Message message;
+  const MyMessage({super.key, required this.message});
 
   @override
   Widget build(BuildContext context) {
@@ -17,7 +20,7 @@ class MyMessage extends StatelessWidget {
           child: Padding(
             padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
             child: Text(
-              'Hola como estas',
+              message.text,
               style: TextStyle(color: Colors.white),
             ),
           ),
